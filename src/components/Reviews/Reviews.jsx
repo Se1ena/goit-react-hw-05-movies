@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchReviewsByFilm } from '../../api-servises';
+import { fetchReviewsByMovie } from '../api-services';
 import { AuthorName, ListItem } from './Reviews.styled';
 
 const Reviews = () => {
@@ -9,7 +9,7 @@ const Reviews = () => {
 
   useEffect(() => {
     (async function getReviewsByFilm() {
-      const res = await fetchReviewsByFilm(movieId);
+      const res = await fetchReviewsByMovie(movieId);
       setReviewsInfo(res.data.results);
     })();
   }, [movieId]);

@@ -1,6 +1,6 @@
 import React from 'react';
-import NavbarItem from './Navbar.styled';
-import Wrapper from '../../Wrapper.styled';
+import {NavbarItem} from '../Navbar/Navbar.styled';
+import {Wrapper} from '../Navbar/Navbar.styled';
 
 const Navbar = () => {
   return (

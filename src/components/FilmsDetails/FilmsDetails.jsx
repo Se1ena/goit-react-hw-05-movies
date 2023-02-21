@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Outlet, useParams, useLocation } from 'react-router-dom';
-import { fetchFilmById } from '../../api-servises';
+import { fetchMovieById } from '../api-services';
 import {
   NavigationLink,
   GenreElement,
@@ -22,7 +22,7 @@ const FilmsDetails = () => {
   useEffect(() => {
     (async function getFilmById() {
       try {
-        const res = await fetchFilmById(filmId);
+        const res = await fetchMovieById(filmId);
         setFilmInfo(res.data);
       } catch {
       }

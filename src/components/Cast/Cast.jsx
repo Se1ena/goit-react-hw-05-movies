@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchCastByFilm } from '../../api-servises';
+import { fetchCastByMovie } from '../api-services';
 import { ListItem, ImgItem, List } from './Cast.styled';
 
 const Cast = () => {
@@ -9,7 +9,7 @@ const Cast = () => {
 
   useEffect(() => {
     (async function getCastByFilm() {
-      const res = await fetchCastByFilm(movieId);
+      const res = await fetchCastByMovie(movieId);
       setCastInfo(res.data.cast);
     })();
   }, [movieId]);
