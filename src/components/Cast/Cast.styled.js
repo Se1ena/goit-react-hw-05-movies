@@ -7,4 +7,5 @@ export const ListItem = styled.li`
 `;
 
 export const ImgItem = styled.img`
+width:100px;
 `;

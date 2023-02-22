@@ -8,13 +8,13 @@ export const fetchPopularMovies = async () => {
   );
 };
 
-export const fetchMovieBySearch = async (filmName) => {
-  return await axios.get(`search/movie?api_key=6f17361e35711c6d99e819ce4497326d&query=${filmName}&language=en-US&page=1&include_adult=false`);
+export const fetchMovieBySearch = async filmName => {
+  return await axios.get(`search/movie?api_key=6f17361e35711c6d99e819ce4497326d&query=${filmName}&language=en-US`);
 };
 
-export const fetchMovieById = async filmId => {
+export const fetchMovieById = async movieId => {
   return await axios.get(
-    `movie/${filmId}?api_key=6f17361e35711c6d99e819ce4497326d&language=en-US`
+    `movie/${movieId}?api_key=6f17361e35711c6d99e819ce4497326d&language=en-US`
   );
 };
 

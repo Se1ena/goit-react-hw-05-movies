@@ -13,8 +13,8 @@ import {
 } from './FilmsDetails.styled';
 
 const FilmsDetails = () => {
-  const { filmId } = useParams();
-  const [filmInfo, setFilmInfo] = useState(null);
+  const { movieId } = useParams();
+  const [movieInfo, setFilmInfo] = useState(null);
   const location = useLocation();
 
   const backLink = location.state?.from ?? '/';
@@ -22,18 +22,18 @@ const FilmsDetails = () => {
   useEffect(() => {
     (async function getFilmById() {
       try {
-        const res = await fetchMovieById(filmId);
+        const res = await fetchMovieById(movieId);
         setFilmInfo(res.data);
       } catch {
       }
     })();
-  }, [filmId]);
+  }, [movieId]);
 
-  if (!filmInfo) {
+  if (!movieInfo) {
     return null;
   }
 
-  const { poster_path, title, vote_average, overview, genres } = filmInfo;
+  const { poster_path, title, vote_average, overview, genres } = movieInfo;
 
   return (
     <div>
