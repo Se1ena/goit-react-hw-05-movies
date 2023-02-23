@@ -3,12 +3,15 @@ import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { fetchMovieById } from '../api-services';
 import {
   NavigationLink,
+  InformationLink,
   GenreElement,
   Genres,
+  Score,
   Overview,
   Poster,
   Title,
   Wrapper,
+  WrapperInfo,
   WrapperDescription,
 } from './FilmsDetails.styled';
 
@@ -37,22 +40,22 @@ const FilmsDetails = () => {
 
   return (
     <div>
-      <NavigationLink to={backLink}>Back</NavigationLink>
+      <NavigationLink to={backLink}>&larr; Go back</NavigationLink>
       <Wrapper>
         <Poster src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt='' />
         <WrapperDescription>
           <Title>{title}</Title>
-          <p>User Score: {parseInt(vote_average * 10)}%</p>
+          <Score>User Score: {parseInt(vote_average * 10)}%</Score>
           <Overview>Overview</Overview>
           <p>{overview}</p>
           <Genres>Genres</Genres>
           <p>{genres.map(item => <GenreElement key={item.id}>{item.name}</GenreElement>)}</p>
         </WrapperDescription>
       </Wrapper>
-      <Wrapper>
-        <NavigationLink to='cast' state={{ from: backLink }}>Cast</NavigationLink>
-        <NavigationLink to='reviews' state={{ from: backLink }}>Reviews</NavigationLink>
-      </Wrapper>
+      <WrapperInfo>
+        <InformationLink to='cast' state={{ from: backLink }}>Cast</InformationLink>
+        <InformationLink to='reviews' state={{ from: backLink }}>Reviews</InformationLink>
+      </WrapperInfo>
       <Outlet />
     </div>
   );
